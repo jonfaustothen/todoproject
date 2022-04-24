@@ -1,0 +1,15 @@
+<h1>Notes</h1>
+<ol>
+    {% for note in notes %}
+        <li>{{ note.text }}</li>
+    {% endfor %}
+</ol>
+
+<form action="{% url 'notes' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="add_note" value="Add Note" />
+</form>
+
+<h3>Go back to the <a href="{% url 'todo_list' %}">Todo List</a>
+</h3>
